@@ -1,15 +1,17 @@
-Summary:	Googsystray is a system tray app for Google Voice, GMail, Google Calendar, Google Reader, and Google Wave
+Summary:	System tray app for Google Voice, GMail, Google Calendar, Google Reader, and Google Wave
 Summary(hu.UTF-8):	Googsystray egy rendszertálca alkalmazás a Google Voice, GMail, Google Calendar, Google Reader és Google Wave oldalakhoz
 Name:		googsystray
 Version:	1.2.0
-Release:	0.1
+Release:	0.2
 License:	GPL v3
 Group:		Applications
-Source0:	http://downloads.sourceforge.net/project/googsystray/googsystray-%{version}/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/project/googsystray/%{name}-%{version}/googsystray-%{version}.tar.gz
 # Source0-md5:	9f439af7d41020a1f084d5e797927a46
 URL:		http://googsystray.sourceforge.net/
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.219
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,12 +26,16 @@ Calendar, Google Reader és Google Wave oldalakhoz.
 %setup -q
 
 %build
-%{__python} setup.py build --executable %{__python}
+%{__python} setup.py build \
+	--executable %{__python}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+%{__python} setup.py install \
+	--optimize=2 \
+	--root $RPM_BUILD_ROOT
 
-%{__python} setup.py install --root $RPM_BUILD_ROOT
+%py_postclean
 
 %find_lang %{name}
 
@@ -43,8 +49,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/%{name}.desktop
 %{_desktopdir}/%{name}-settings.desktop
 %{_iconsdir}/%{name}.png
-%{_iconsdir}/hicolor/*/*
+%{_iconsdir}/hicolor/*/apps/googsystray.png
 %{py_sitescriptdir}/*.egg-info
 %{py_sitescriptdir}/%{name}
-%lang(pt) %{_datadir}/locale/pt/LC_MESSAGES/googsystray.mo
-%lang(tr) %{_datadir}/locale/tr/LC_MESSAGES/googsystray.mo
