@@ -46,8 +46,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CREDITS CHANGELOG TODO
 %attr(755,root,root) %{_bindir}/%{name}
-%lang(pt) %{_datadir}/locale/pt/LC_MESSAGES/googsystray.mo
-%lang(tr) %{_datadir}/locale/tr/LC_MESSAGES/googsystray.mo
 %{_desktopdir}/%{name}.desktop
 %{_desktopdir}/%{name}-settings.desktop
 %{_iconsdir}/%{name}.png
