@@ -1,12 +1,12 @@
 Summary:	System tray app for Google Voice, GMail, Google Calendar, Google Reader, and Google Wave
 Summary(hu.UTF-8):	Rendszertálca alkalmazás a Google Voice, GMail, Google Calendar, Google Reader és Google Wave oldalakhoz
 Name:		googsystray
-Version:	1.2.2
+Version:	1.2.4
 Release:	1
 License:	GPL v3
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/project/googsystray/%{name}-%{version}/googsystray-%{version}.tar.gz
-# Source0-md5:	31a778521807105beedacd352ffc2716
+# Source0-md5:	e462e4b3785dd27281ea955844f9c85e
 URL:		http://googsystray.sourceforge.net/
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
